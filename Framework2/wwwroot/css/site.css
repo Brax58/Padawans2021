@@ -1,0 +1,124 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+@header_background_color: #333;
+@header_text_color: #FDFDFD;
+@alternate_row_background_color: #DDD;
+
+@table_width: 750px;
+@table_body_height: 300px;
+@column_one_width: 200px;
+@column_two_width: 200px;
+@column_three_width: 350px;
+
+.fixed_headers {
+  width: @table_width;
+  table-layout: fixed;
+  border-collapse: collapse;
+  
+  th { text-decoration: underline; }
+  th, td {
+    padding: 5px;
+    text-align: left;
+  }
+  
+  td:nth-child(1), th:nth-child(1) { min-width: @column_one_width; }
+  td:nth-child(2), th:nth-child(2) { min-width: @column_two_width; }
+  td:nth-child(3), th:nth-child(3) { width: @column_three_width; }
+
+  thead {
+    background-color: @header_background_color;
+    color: @header_text_color;
+    tr {
+      display: block;
+      position: relative;
+    }
+  }
+  tbody {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: @table_body_height;
+    tr:nth-child(even) {
+      background-color: @alternate_row_background_color;
+    }
+  }
+}
+
+.old_ie_wrapper {
+  height: @table_body_height;
+  width: @table_width;
+  overflow-x: hidden;
+  overflow-y: auto;
+  tbody { height: auto; }
+}

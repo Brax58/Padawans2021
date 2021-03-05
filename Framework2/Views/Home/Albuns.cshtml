@@ -1,0 +1,57 @@
+﻿<!--    Aqui estou chamando o Framework para a paginação   -->
+@using PagedList.Mvc;
+
+<!--    Aqui estou usando uma função do Framework,passando os parametros que irão retornar da Api   -->
+@model PagedList.IPagedList<Framework.Models.AlbunsModel>;
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap-reboot.css" rel="stylesheet" />
+
+<style>
+    #link {
+        margin-left: 85%;
+    }
+</style>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>id</th>
+        <th>Userid</th>
+        <th>title</th>
+
+    </tr>
+
+    <!--    Aqui estou Criando um Foreach para criar um "tr" para grupo de informção que vier da Api e Exibindo-os -->
+    @foreach (var album in Model)
+    {
+        <tr>
+            <!--    Exibindo cada um dos dados que irão retornar da Api -->
+            <td>@(album.id)</td>
+            <td>@(album.userId)</td>
+            <td>@(album.title)</td>
+        </tr>
+    }
+</table>
+<div>
+    <!--                           Paginação                      -->
+    <!--  Quando esta na tela que tem id =1 ,id =2 ...,não tem como voltar,esse if esta conferindo para que isso não possa acontecer   -->
+    @{ if (Model.HasPreviousPage)
+        {
+            <!-- Aqui está dando a opção para o úsuario de voltar para a página anterior de dados    -->
+            <a>
+                @Html.ActionLink("Anterior", "Albuns",
+           new { pagina = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+            </a>;
+        }
+    }
+    <!--    Este IF está sendo utilizado para evitar a criação de mais páginas não contendo os dados,pois já teriam acabado  -->
+    @{ if (Model.HasNextPage)
+        {
+            <!--    Aqui está dando a opção para o úsuario de avançar para a próxima página de dados  -->
+            <a id="link">
+                @Html.ActionLink("Proximo", "Albuns",
+    new { pagina = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+            </a>}
+    }
+
+</div>
