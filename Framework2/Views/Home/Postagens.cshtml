@@ -12,6 +12,11 @@
     #link {
         margin-left: 85%;
     }
+
+    th {
+        color: rebeccapurple;
+        font-size: 20px;
+    }
 </style>
 <table class="table table-striped table-hover">
     <tr>
@@ -24,35 +29,34 @@
     <!--    Aqui estou Criando um Foreach para criar um "tr" para grupo de informção que vier da Api e Exibindo-os -->
     @foreach (var postagem in Model)
     {
-        <tr>
-            <!--    Exibindo cada um dos dados que irão retornar da Api -->
-            <td>@(postagem.id)</td>
-            <td>@(postagem.userid)</td>
-            <td>@(postagem.title)</td>
-            <td>@(postagem.body)</td>
-        </tr>
-    }
+<tr>
+    <!--    Exibindo cada um dos dados que irão retornar da Api -->
+    <td>@(postagem.id)</td>
+    <td>@(postagem.userid)</td>
+    <td>@(postagem.title)</td>
+    <td>@(postagem.body)</td>
+</tr>}
 </table>
 <div>
     <!--                           Paginação                      -->
     <!--    Quando esta na tela que tem id =1 ,id =2 ...,não tem como voltar,esse if esta conferindo para que isso não possa acontecer   -->
     @{ if (Model.HasPreviousPage)
-        {
-            <!-- Aqui está dando a opção para o úsuario de voltar para a página anterior de dados    -->
-            <a>
-                @Html.ActionLink("Anterior", "Postagens",
-           new { pagina = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
-            </a>;
-        }
-    }
+        { <!-- Aqui está dando a opção para o úsuario de voltar para a página anterior de dados    -->
+                <a>
+                    <b>
+                        @Html.ActionLink("Anterior", "Postagens",
+                            new { pagina = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+                    </b>
+                </a>;
+            } }
     <!--    Este IF está sendo utilizado para evitar a criação de mais páginas não contendo os dados,pois já teriam acabado  -->
     @{ if (Model.HasNextPage)
-        {
-            <!--    Aqui está dando a opção para o úsuario de avançar para a próxima página de dados  -->
-            <a id="link">
-                @Html.ActionLink("Proximo", "Postagens",
-    new { pagina = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
-            </a>}
-    }
+        { <!--    Aqui está dando a opção para o úsuario de avançar para a próxima página de dados  -->
+                <a id="link">
+                    <b>
+                        @Html.ActionLink("Proximo", "Postagens",
+                             new { pagina = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+                    </b>
+                </a>} }
 
 </div>

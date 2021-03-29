@@ -4,6 +4,8 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url('file:///C:\Users\Gustavo\source\repos\Padawans2021-main\Framework2\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css');
+@import url('file:///C:\Users\Gustavo\source\repos\Padawans2021-main\Framework2\wwwroot\lib\bootstrap\dist\css\bootstrap.css');
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
